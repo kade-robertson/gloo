@@ -2,13 +2,13 @@ import sys
 import argparse
 from gloocode import *
 
-allnums = '0123456789.'
-
 def numparse(n):
     if '.' in n:
         return float(n)
     else:
         return int(n)
+
+allnums = '0123456789.'
 
 def process(program):
     stack = []
@@ -36,7 +36,7 @@ def process(program):
         else:
             codepage[hex(ord(program[pos]))](stack)
         pos += 1
-    print stack
+    print ''.join(map(str,stack))
 
 def main():
     pargs = argparse.ArgumentParser( description = 'Interpreter for the Gloo programming language.' )

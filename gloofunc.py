@@ -94,8 +94,38 @@ def mult(stk):
             stk.append(k)
     else:
         stk.append(k)
-        
-        
+
+def divd(stk):
+    if len(stk) == 0: return
+    k = stk.pop()
+    if type(k) in (int, long, float):
+        if len(stk) == 0:
+            stk.append(k)
+            return
+        j = stk.pop()
+        if type(j) in (int, long, float):
+            stk.append(float(j) / float(k))
+        else:
+            stk.append(j)
+            stk.append(k)
+    else:
+        stk.append(k)
+
+def divint(stk):
+    if len(stk) == 0: return
+    k = stk.pop()
+    if type(k) in (int, long, float):
+        if len(stk) == 0:
+            stk.append(k)
+            return
+        j = stk.pop()
+        if type(j) in (int, long, float):
+            stk.append(int(j / k))
+        else:
+            stk.append(j)
+            stk.append(k)
+    else:
+        stk.append(k)
 
 def wrap(stk):
     newl = []
@@ -111,6 +141,14 @@ def uwrap(stk):
             stk.append(item)
     else:
         stk.append(K)
+
+def inpt(stk):
+    try: stk.append(input())
+    except: return
+
+def rinp(stk):
+    try: stk.append(raw_input())
+    except: return
 
 def noop(stk):
     return

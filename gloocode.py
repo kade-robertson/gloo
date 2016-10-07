@@ -48,7 +48,7 @@ codepage = {
     '0x2c': noop,
     '0x2d': subt,   # - - subtract function, string remove, false filter
     '0x2e': noop,
-    '0x2f': noop,
+    '0x2f': divd,   # / - division function
     '0x30': noop,
     '0x31': noop,
     '0x32': noop,
@@ -74,7 +74,7 @@ codepage = {
     '0x46': noop,
     '0x47': noop,
     '0x48': noop,
-    '0x49': noop,
+    '0x49': rinp,   # I - raw input
     '0x4a': noop,
     '0x4b': noop,
     '0x4c': noop,
@@ -93,7 +93,7 @@ codepage = {
     '0x59': noop,
     '0x5a': noop,
     '0x5b': wrap,    # [ - wrap stack in list
-    '0x5c': noop,
+    '0x5c': divint,  # \ - division function (integer)
     '0x5d': uwrap,   # ] - unwrap list at top of stack
     '0x5e': noop,
     '0x5f': noop,
@@ -106,7 +106,7 @@ codepage = {
     '0x66': noop,
     '0x67': noop,
     '0x68': noop,
-    '0x69': noop,
+    '0x69': inpt,    # i - eval'd input
     '0x6a': noop,
     '0x6b': noop,
     '0x6c': noop,
