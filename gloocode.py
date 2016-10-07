@@ -34,21 +34,21 @@ codepage = {
     '0x1e': noop,
     '0x1f': noop,
     '0x20': noop,
-    '0x21': noop,
+    '0x21': fact,    # ! - factorial function, single numbers and list mapping
     '0x22': noop,
     '0x23': noop,
-    '0x24': noop,
+    '0x24': sort,    # $ - sort list or string, negates number
     '0x25': noop,
     '0x26': noop,
     '0x27': noop,
     '0x28': noop,
     '0x29': noop,
-    '0x2a': mult,   # * - multiply function / reduce, string multiply
-    '0x2b':  add,   # + - addition function / reduce, string join, append
+    '0x2a': mult,    # * - multiply function / reduce, string multiply
+    '0x2b':  add,    # + - addition function / reduce, string join, append
     '0x2c': noop,
-    '0x2d': subt,   # - - subtract function, string remove, false filter
+    '0x2d': subt,    # - - subtract function, string remove, false filter
     '0x2e': noop,
-    '0x2f': divd,   # / - division function
+    '0x2f': divd,    # / - division function
     '0x30': noop,
     '0x31': noop,
     '0x32': noop,
@@ -74,7 +74,7 @@ codepage = {
     '0x46': noop,
     '0x47': noop,
     '0x48': noop,
-    '0x49': rinp,   # I - raw input
+    '0x49': rinp,    # I - raw input
     '0x4a': noop,
     '0x4b': noop,
     '0x4c': noop,

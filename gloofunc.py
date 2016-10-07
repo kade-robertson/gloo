@@ -1,3 +1,4 @@
+import math
 import operator
 
 def add(stk):
@@ -37,7 +38,7 @@ def subt(stk):
     if len(stk) == 0: return
     k = stk.pop()
     if type(k) is list:
-        k = [i for i in k if i]
+        k = [i for i in k if (i and i != ' ')]
         stk.append(k)
     elif type(k) in (int, long, float):
         if len(stk) == 0:
@@ -149,6 +150,31 @@ def inpt(stk):
 def rinp(stk):
     try: stk.append(raw_input())
     except: return
+
+def sort(stk):
+    if len(stk) == 0: return
+    k = stk.pop()
+    if type(k) in (str, list): stk.append(sorted(k))
+    elif type(k) in (int, long, float): stk.append(-1 * k)
+    else: stk.append(k)
+
+def fact(stk):
+    if len(stk) == 0: return
+    k = stk.pop()
+    if type(k) in (int, long, float):
+        if type(k) is float: k = math.gamma(k+1)
+        else: k = math.factorial(k)
+        stk.append(k)
+    elif type(k) is list:
+        if all(isinstance(i, (int, long, float)) for i in k):
+            for a in xrange(0, len(k)):
+                if type(k[a]) is float: k[a] = math.gamma(k[a]+1)
+                else: k[a] = math.factorial(k[a])
+            stk.append(k)
+        else:
+            stk.append(k)
+    else:
+        stk.append(k)
 
 def noop(stk):
     return
