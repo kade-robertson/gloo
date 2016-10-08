@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from gloofunc import *
 
 codepage = {
@@ -223,7 +225,7 @@ codepage = {
     '0xdb': noop,
     '0xdc': noop,
     '0xdd': noop,
-    '0xde': noop,
+    '0xde': isprm,   # Þ - primality test
     '0xdf': noop,
     '0xe0': noop,
     '0xe1': noop,

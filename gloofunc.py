@@ -256,5 +256,28 @@ def dupl(stk):
     stk.append(k)
     stk.append(k)
 
+def isprm(stk):
+    if len(stk) == 0:
+        stk.append(input())
+    k = stk.pop()
+    if type(k) in (long, int):
+        if k == 2:
+            stk.append(True)
+            return
+        if k <= 1 or k % 2 == 0:
+            stk.append(False)
+            return
+        i = 3
+        m = int(k**.5)
+        while i <= m:
+            if k % i == 0:
+                stk.append(False)
+                return
+            i += 2
+        stk.append(True)
+        return
+    else:
+        stk.append(k)
+
 def noop(stk):
     return
