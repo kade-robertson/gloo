@@ -45,23 +45,23 @@ codepage = {
     '0x29': noop,
     '0x2a': mult,    # * - multiply function / reduce, string multiply
     '0x2b':  add,    # + - addition function / reduce, string join, append
-    '0x2c': noop,
+    '0x2c': drop,    # , - pop last
     '0x2d': subt,    # - - subtract function, string remove, false filter
-    '0x2e': noop,
+    '0x2e': noop,    # . - used for floats
     '0x2f': divd,    # / - division function
-    '0x30': noop,
-    '0x31': noop,
-    '0x32': noop,
-    '0x33': noop,
-    '0x34': noop,
-    '0x35': noop,
-    '0x36': noop,
-    '0x37': noop,
-    '0x38': noop,
-    '0x39': noop,
+    '0x30': noop,    # 0 - reserved for int/float
+    '0x31': noop,    # 1 - reserved for int/float
+    '0x32': noop,    # 2 - reserved for int/float
+    '0x33': noop,    # 3 - reserved for int/float
+    '0x34': noop,    # 4 - reserved for int/float
+    '0x35': noop,    # 5 - reserved for int/float
+    '0x36': noop,    # 6 - reserved for int/float
+    '0x37': noop,    # 7 - reserved for int/float
+    '0x38': noop,    # 8 - reserved for int/float
+    '0x39': noop,    # 9 - reserved for int/float
     '0x3a': noop,
-    '0x3b': noop,
-    '0x3c': noop,
+    '0x3b': swap,    # ; - swap top two items
+    '0x3c': noop,  
     '0x3d': noop,
     '0x3e': noop,
     '0x3f': noop,
@@ -78,7 +78,7 @@ codepage = {
     '0x4a': noop,
     '0x4b': noop,
     '0x4c': noop,
-    '0x4d': noop,
+    '0x4d': maxm,    # M - greater-than compare, maximum of list
     '0x4e': noop,
     '0x4f': noop,
     '0x50': noop,
@@ -96,7 +96,7 @@ codepage = {
     '0x5c': divint,  # \ - division function (integer)
     '0x5d': uwrap,   # ] - unwrap list at top of stack
     '0x5e': noop,
-    '0x5f': noop,
+    '0x5f': dupl,    # _ - duplicate top item
     '0x60': noop,
     '0x61': noop,
     '0x62': noop,
@@ -110,7 +110,7 @@ codepage = {
     '0x6a': noop,
     '0x6b': noop,
     '0x6c': noop,
-    '0x6d': noop,
+    '0x6d': minm,    # m - less-than compare, minimum of list
     '0x6e': noop,
     '0x6f': noop,
     '0x70': noop,

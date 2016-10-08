@@ -176,5 +176,54 @@ def fact(stk):
     else:
         stk.append(k)
 
+def drop(stk):
+    if len(stk) == 0: return
+    stk.pop()
+
+def swap(stk):
+    if len(stk) < 2: return
+    k = stk.pop()
+    j = stk.pop()
+    stk.append(k)
+    stk.append(j)
+
+def minm(stk):
+    if len(stk) == 0: return
+    k = stk.pop()
+    if type(k) is list:
+        stk.append(min(k))
+    else:
+        if len(stk) == 0:
+            stk.append(k)
+            return
+        j = stk.pop()
+        if type(j) is not list:
+            stk.append(j < k)
+        else:
+            stk.append(j)
+            stk.append(k)
+
+def maxm(stk):
+    if len(stk) == 0: return
+    k = stk.pop()
+    if type(k) is list:
+        stk.append(max(k))
+    else:
+        if len(stk) == 0:
+            stk.append(k)
+            return
+        j = stk.pop()
+        if type(j) is not list:
+            stk.append(j > k)
+        else:
+            stk.append(j)
+            stk.append(k)
+
+def dupl(stk):
+    if len(stk) == 0: return
+    k = stk.pop()
+    stk.append(k)
+    stk.append(k)
+
 def noop(stk):
     return
