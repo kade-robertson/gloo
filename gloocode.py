@@ -68,7 +68,7 @@ codepage = {
     '0x3e': noop,
     '0x3f': noop,
     '0x40': noop,
-    '0x41': noop,
+    '0x41': highr,   # A - str to upper case
     '0x42': noop,
     '0x43': noop,
     '0x44': noop,
@@ -100,7 +100,7 @@ codepage = {
     '0x5e': noop,
     '0x5f': dupl,    # _ - duplicate top item
     '0x60': noop,
-    '0x61': noop,
+    '0x61': lowr,    # a - str to lower case
     '0x62': noop,
     '0x63': noop,
     '0x64': noop,

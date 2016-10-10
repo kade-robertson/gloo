@@ -279,5 +279,23 @@ def isprm(stk):
     else:
         stk.append(k)
 
+def lowr(stk):
+    if len(stk) == 0:
+        stk.append(input())
+    k = stk.pop()
+    if type(k) is str:
+        stk.append(k.lower())
+    else:
+        stk.append(k)
+
+def highr(stk):
+    if len(stk) == 0:
+        stk.append(input())
+    k = stk.pop()
+    if type(k) is str:
+        stk.append(k.upper())
+    else:
+        stk.append(k)
+
 def noop(stk):
     return
