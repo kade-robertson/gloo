@@ -127,7 +127,7 @@ codepage = {
     '0x79': noop,
     '0x7a': noop,
     '0x7b': noop,
-    '0x7c': noop,
+    '0x7c': noop,    # | - reserved for list mapping
     '0x7d': noop,
     '0x7e': noop,
     '0x7f': noop,

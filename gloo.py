@@ -10,8 +10,7 @@ def numparse(n):
 
 allnums = '0123456789.'
 
-def process(program):
-    stack = []
+def process(program, stack=[], supprint=False):
     pos = 0
     while pos < len(program):
         if program[pos] in allnums[:-1]:
@@ -33,10 +32,26 @@ def process(program):
                 sstr += program[pos]
                 pos  += 1
             stack.append(sstr)
+        elif program[pos] == "|":
+            if not len(stack) == 0:
+                k = stack.pop()
+                l = []
+                if type(k) is list:
+                    mapprog = ""
+                    pos += 1
+                    while pos < len(program) and program[pos] != "|":
+                        mapprog += program[pos]
+                        pos += 1
+                    for i in xrange(0, len(k)):
+                        l.append(process(mapprog, [k[i]], True)[0])
+                    stack.append(l)
+                else:
+                    stack.append(k)
         else:
             codepage[hex(ord(program[pos]))](stack)
         pos += 1
-    print ''.join(map(str,stack))
+    if not supprint: print ''.join(map(str,stack))
+    return stack
 
 def main():
     pargs = argparse.ArgumentParser( description = 'Interpreter for the Gloo programming language.' )
