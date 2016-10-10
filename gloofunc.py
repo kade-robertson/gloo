@@ -297,5 +297,35 @@ def highr(stk):
     else:
         stk.append(k)
 
+def rotr(stk):
+    if len(stk) == 0: return
+    k = stk.pop()
+    stk = [k] + stk
+
+def rotl(stk):
+    if len(stk) == 0: return
+    k = stk.pop(0)
+    stk.append(k)
+
+def cond(stk):
+    if len(stk) == 0:
+        return
+    k = stk.pop()
+    if type(k) is bool and len(stk) >= 2:
+        if len(stk) >= 2:
+            b = stk.pop()
+            a = stk.pop()
+            if k: stk.append(a)
+            else: stk.append(b)
+        elif len(stk) == 1:
+            if not k: stk.pop(); stk.append(False)
+        else:
+            stk.append(k)
+    elif type(k) in (list, str): stk.append(k[::-1])
+    elif type(k) in (int, long, float): stk.append(type(k)(str(k)[::-1]))
+    else:
+        stk.append(k)
+
+
 def noop(stk):
     return

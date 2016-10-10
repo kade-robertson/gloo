@@ -61,13 +61,13 @@ codepage = {
     '0x37': noop,    # 7 - reserved for int/float
     '0x38': noop,    # 8 - reserved for int/float
     '0x39': noop,    # 9 - reserved for int/float
-    '0x3a': noop,
+    '0x3a': rotl,    # : - rotate stack left
     '0x3b': swap,    # ; - swap top two items
     '0x3c': noop,  
     '0x3d': noop,
     '0x3e': noop,
-    '0x3f': noop,
-    '0x40': noop,
+    '0x3f': cond,    # ? - conditional, reverse string/list/number
+    '0x40': rotr,    # @ - rotate stack right
     '0x41': highr,   # A - str to upper case
     '0x42': noop,
     '0x43': noop,
