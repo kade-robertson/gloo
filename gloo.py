@@ -46,7 +46,7 @@ def process(program, stack=[], supprint=False):
                         mapprog += program[pos]
                         pos += 1
                     for i in xrange(0, len(k)):
-                        s, supprint = process(mapprog, [k[i]], True)
+                        s, supprint = process(mapprog, [i, k[i]], True)
                         l.append(s[0])
                     stack.append(l)
                 else:
@@ -69,7 +69,9 @@ def main():
     else:
         prog = raw_input("gloo # ")
         while prog != 'ungloo me!':
-            process(prog)
+            if prog == "quine": print "quine"
+            elif prog == "": print "Hello, world!"
+            else: process(prog, stack=[])
             prog = raw_input("gloo # ")
         
 if __name__ == '__main__':

@@ -1,6 +1,8 @@
 import math
 import operator
 
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 def add(stk):
     if len(stk) == 0:
         stk.append(input())
@@ -143,6 +145,25 @@ def divint(stk):
             j = stk.pop()
         if type(j) in (int, long, float):
             stk.append(int(j / k))
+        else:
+            stk.append(j)
+            stk.append(k)
+    else:
+        stk.append(k)
+
+def modul(stk):
+    if len(stk) == 0:
+        stk.append(input())
+    k = stk.pop()
+    if type(k) in (int, long):
+        j = 0
+        if len(stk) == 0:
+            j = input()
+            j,k = k,j
+        else:
+            j = stk.pop()
+        if type(j) in (int, long):
+            stk.append(int(j % k))
         else:
             stk.append(j)
             stk.append(k)
@@ -370,6 +391,10 @@ def inrg(stk):
 
 def prnt(stk):
     print ''.join(map(str,stk))
+
+def upal(stk): stk.append(alphabet)
+
+def lwal(stk): stk.append(alphabet.lower())
 
 def noop(stk):
     return

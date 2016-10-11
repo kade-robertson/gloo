@@ -40,7 +40,7 @@ codepage = {
     '0x22': noop,
     '0x23': noop,
     '0x24': sort,    # $ - sort list or string, negates number
-    '0x25': noop,
+    '0x25': modul,   # % - modulus
     '0x26': noop,
     '0x27': noop,    # ' - read single char
     '0x28': noop,
@@ -200,7 +200,7 @@ codepage = {
     '0xc2': noop,
     '0xc3': noop,
     '0xc4': noop,
-    '0xc5': noop,
+    '0xc5': upal,    # Å - pushes uppercase alphabet to stack
     '0xc6': noop,
     '0xc7': noop,
     '0xc8': noop,
@@ -232,7 +232,7 @@ codepage = {
     '0xe2': noop,
     '0xe3': noop,
     '0xe4': noop,
-    '0xe5': noop,
+    '0xe5': lwal,    # å - pushes uppercase alphabet to stack
     '0xe6': noop,
     '0xe7': noop,
     '0xe8': noop,
