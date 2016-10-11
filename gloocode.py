@@ -127,7 +127,7 @@ codepage = {
     '0x79': noop,
     '0x7a': noop,
     '0x7b': noop,
-    '0x7c': noop,    # | - reserved for list mapping
+    '0x7c': noop,
     '0x7d': noop,
     '0x7e': noop,
     '0x7f': noop,
@@ -148,8 +148,8 @@ codepage = {
     '0x8e': noop,
     '0x8f': noop,
     '0x90': noop,
-    '0x91': noop,
-    '0x92': noop,
+    '0x91': noop,    # ‘ - reserved for list mapping (begin)
+    '0x92': noop,    # ’ - reserved for list mapping (end)
     '0x93': noop,
     '0x94': noop,
     '0x95': noop,
@@ -185,7 +185,7 @@ codepage = {
     '0xb3': noop,
     '0xb4': noop,
     '0xb5': noop,
-    '0xb6': noop,
+    '0xb6': noop,    # ¶ - reserved for single operation mapping
     '0xb7': noop,
     '0xb8': noop,
     '0xb9': noop,
