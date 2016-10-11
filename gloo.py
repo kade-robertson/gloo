@@ -32,6 +32,9 @@ def process(program, stack=[], supprint=False):
                 sstr += program[pos]
                 pos  += 1
             stack.append(sstr)
+        elif program[pos] == "'":
+            pos += 1
+            stack.append(program[pos])
         elif program[pos] == "|":
             if not len(stack) == 0:
                 k = stack.pop()

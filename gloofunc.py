@@ -326,6 +326,47 @@ def cond(stk):
     else:
         stk.append(k)
 
+def sjoin(stk):
+    if len(stk) <= 1:
+        return
+    k = stk.pop()
+    if type(k) is str:
+        j = stk.pop()
+        if type(j) is list:
+            stk.append(k.join(j))
+        else:
+            stk.append(j)
+            stk.append(k)
+    else:
+        stk.append(k)
+
+def exrg(stk):
+    if len(stk) == 0:
+        stk.append(input())
+    k = stk.pop()
+    if type(k) is list and len(k) == 2:
+        if all(isinstance(i, (int, long)) for i in k):
+            stk.append(range(*k))
+        else:
+            stk.append(k)
+    elif type(k) in (int, long):
+        stk.append(range(k))
+    else:
+        stk.append(k)
+
+def inrg(stk):
+    if len(stk) == 0:
+        stk.append(input())
+    k = stk.pop()
+    if type(k) is list and len(k) == 2:
+        if all(isinstance(i, (int, long)) for i in k):
+            stk.append(range(k[0],k[1]+1))
+        else:
+            stk.append(k)
+    elif type(k) in (int, long):
+        stk.append(range(1,k+1))
+    else:
+        stk.append(k)
 
 def noop(stk):
     return

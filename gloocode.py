@@ -42,7 +42,7 @@ codepage = {
     '0x24': sort,    # $ - sort list or string, negates number
     '0x25': noop,
     '0x26': noop,
-    '0x27': noop,
+    '0x27': noop,    # ' - read single char
     '0x28': noop,
     '0x29': noop,
     '0x2a': mult,    # * - multiply function / reduce, string multiply
@@ -85,7 +85,7 @@ codepage = {
     '0x4f': noop,
     '0x50': noop,
     '0x51': noop,
-    '0x52': noop,
+    '0x52': inrg,    # R - inclusive range function
     '0x53': noop,
     '0x54': noop,
     '0x55': noop,
@@ -109,7 +109,7 @@ codepage = {
     '0x67': noop,
     '0x68': noop,
     '0x69': inpt,    # i - eval'd input
-    '0x6a': noop,
+    '0x6a': sjoin,   # j - joing by string/char
     '0x6b': noop,
     '0x6c': noop,
     '0x6d': minm,    # m - less-than compare, minimum of list
@@ -117,7 +117,7 @@ codepage = {
     '0x6f': noop,
     '0x70': noop,
     '0x71': noop,
-    '0x72': noop,
+    '0x72': exrg,    # r - exclusive range function
     '0x73': noop,
     '0x74': noop,
     '0x75': noop,
