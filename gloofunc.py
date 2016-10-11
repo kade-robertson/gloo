@@ -368,5 +368,8 @@ def inrg(stk):
     else:
         stk.append(k)
 
+def prnt(stk):
+    print ''.join(map(str,stk))
+
 def noop(stk):
     return

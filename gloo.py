@@ -46,15 +46,18 @@ def process(program, stack=[], supprint=False):
                         mapprog += program[pos]
                         pos += 1
                     for i in xrange(0, len(k)):
-                        l.append(process(mapprog, [k[i]], True)[0])
+                        s, supprint = process(mapprog, [k[i]], True)
+                        l.append(s[0])
                     stack.append(l)
                 else:
                     stack.append(k)
         else:
             codepage[hex(ord(program[pos]))](stack)
+        if program[pos] in 'p':
+            supprint = True
         pos += 1
     if not supprint: print ''.join(map(str,stack))
-    return stack
+    return stack, supprint
 
 def main():
     pargs = argparse.ArgumentParser( description = 'Interpreter for the Gloo programming language.' )

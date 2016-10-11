@@ -115,7 +115,7 @@ codepage = {
     '0x6d': minm,    # m - less-than compare, minimum of list
     '0x6e': noop,
     '0x6f': noop,
-    '0x70': noop,
+    '0x70': prnt,    # p - prints stack, suppresses end-of-program print
     '0x71': noop,
     '0x72': exrg,    # r - exclusive range function
     '0x73': noop,
