@@ -348,7 +348,7 @@ def cond(stk):
         stk.append(k)
 
 def sjoin(stk):
-    if len(stk) <= 1:
+    if len(stk) < 1:
         return
     k = stk.pop()
     if type(k) is str:
@@ -358,6 +358,8 @@ def sjoin(stk):
         else:
             stk.append(j)
             stk.append(k)
+    elif type(k) is list:
+        stk.append('\n'.join(k))
     else:
         stk.append(k)
 

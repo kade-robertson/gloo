@@ -11,6 +11,7 @@ def numparse(n):
 allnums = '0123456789.'
 
 def process(program, stack=[], supprint=False):
+    nested = stack != []
     pos = 0
     while pos < len(program):
         if program[pos] in allnums[:-1]:
@@ -39,24 +40,24 @@ def process(program, stack=[], supprint=False):
             if not len(stack) == 0:
                 k = stack.pop()
                 l = []
-                if type(k) is list:
+                if type(k) in (str, list):
                     mapprog = ""
                     pos += 1
                     while pos < len(program) and program[pos] != "|":
                         mapprog += program[pos]
                         pos += 1
                     for i in xrange(0, len(k)):
-                        s, supprint = process(mapprog, [i, k[i]], True)
+                        s, supprint = process(mapprog, [k[i]], False)
                         l.append(s[0])
                     stack.append(l)
                 else:
                     stack.append(k)
         else:
             codepage[hex(ord(program[pos]))](stack)
-        if program[pos] in 'p':
+        if program[pos] in 'p' and pos != 0 and program[pos-1] != "'":
             supprint = True
         pos += 1
-    if not supprint: print ''.join(map(str,stack))
+    if not supprint and not nested: print ''.join(map(str,stack))
     return stack, supprint
 
 def main():
