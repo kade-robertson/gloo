@@ -83,10 +83,13 @@ def main():
     pargs = argparse.ArgumentParser( description = 'Interpreter for the Gloo programming language.' )
     pargs.add_argument('-f', nargs = '?', help='read Gloo program from a file')
     pargs.add_argument('-d', action='store_true', help='enable debug printing of stack')
+    pargs.add_argument('-p', nargs = '?', help='runs Gloo program from argument') 
     args, rest = pargs.parse_known_args()
     if args.f is not None:
         with open(args.f) as prog:
             process(prog.read(), stack=[], debug=args.d)
+    if args.p is not None:
+        process(args.p, stack=[], debug=args.d)
     else:
         prog = raw_input("gloo # ")
         while prog != 'ungloo me!':

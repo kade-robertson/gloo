@@ -354,12 +354,12 @@ def sjoin(stk):
     if type(k) is str:
         j = stk.pop()
         if type(j) is list:
-            stk.append(k.join(j))
+            stk.append(k.join(map(str,j)))
         else:
             stk.append(j)
             stk.append(k)
     elif type(k) is list:
-        stk.append('\n'.join(k))
+        stk.append('\n'.join(map(str,k)))
     else:
         stk.append(k)
 
