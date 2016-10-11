@@ -396,5 +396,23 @@ def upal(stk): stk.append(alphabet)
 
 def lwal(stk): stk.append(alphabet.lower())
 
+def toup(stk):
+    if len(stk) == 0:
+        stk.append(raw_input())
+    k = stk.pop()
+    if type(k) is str:
+        stk.append(k.upper())
+    else:
+        stk.append(k)
+
+def tolw(stk):
+    if len(stk) == 0:
+        stk.append(raw_input())
+    k = stk.pop()
+    if type(k) is str:
+        stk.append(k.lower())
+    else:
+        stk.append(k)
+
 def noop(stk):
     return

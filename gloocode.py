@@ -199,7 +199,7 @@ codepage = {
     '0xc1': noop,
     '0xc2': noop,
     '0xc3': noop,
-    '0xc4': noop,
+    '0xc4': toup,    # Ä - converts top string to uppercase
     '0xc5': upal,    # Å - pushes uppercase alphabet to stack
     '0xc6': noop,
     '0xc7': noop,
@@ -231,7 +231,7 @@ codepage = {
     '0xe1': noop,
     '0xe2': noop,
     '0xe3': noop,
-    '0xe4': noop,
+    '0xe4': tolw,    # ä - converts top string to lowercase
     '0xe5': lwal,    # å - pushes uppercase alphabet to stack
     '0xe6': noop,
     '0xe7': noop,
