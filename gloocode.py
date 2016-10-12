@@ -64,7 +64,7 @@ codepage = {
     '0x3a': rotl,    # : - rotate stack left
     '0x3b': swap,    # ; - swap top two items
     '0x3c': noop,  
-    '0x3d': noop,
+    '0x3d': equl,    # = - equality check
     '0x3e': noop,
     '0x3f': cond,    # ? - conditional, reverse string/list/number
     '0x40': rotr,    # @ - rotate stack right
@@ -129,7 +129,7 @@ codepage = {
     '0x7b': noop,
     '0x7c': noop,
     '0x7d': noop,
-    '0x7e': noop,
+    '0x7e': evlt,    # ~ - evaulate a string, complement of number
     '0x7f': noop,
     '0x80': noop,
     '0x81': noop,

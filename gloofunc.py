@@ -456,5 +456,26 @@ def zipl(stk):
     else:
         stk.append(k)
 
+def equl(stk):
+    if len(stk) == 0:
+        stk.append(input())
+    k = stk.pop()
+    if len(stk) == 0:
+        stk.append(input())
+    j = stk.pop()
+    stk.append(k == j)
+
+def evlt(stk):
+    if len(stk) == 0:
+        stk.append(raw_input())
+    k = stk.pop()
+    if type(k) is str:
+        stk.append(eval(k))
+    elif type(k) in (int, long):
+        stk.append(~k)
+    else:
+        stk.append(k)
+        
+
 def noop(stk):
     return

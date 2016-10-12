@@ -76,7 +76,7 @@ def process(program, stack=[], supprint=False, debug=False):
             supprint = True
         pos += 1
         if debug: print "DEBUG: " + str(stack)
-    if not supprint and not nested: print ''.join(map(str,stack))
+    if not supprint and not nested and stack != []: print ''.join(map(str,stack))
     return stack, supprint
 
 def main():
