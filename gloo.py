@@ -74,8 +74,8 @@ def process(program, stack=[], supprint=False, debug=False):
             codepage[hex(ord(program[pos]))](stack)
         if pos < len(program) and pos >= 1 and program[pos] in 'p' and program[pos-1] != "'":
             supprint = True
+        if debug: print "DEBUG:: POS: %d, CHAR: '%s', STACK: %s"%(pos, program[pos], str(stack))
         pos += 1
-        if debug: print "DEBUG: " + str(stack)
     if not supprint and not nested and stack != []: print ''.join(map(str,stack))
     return stack, supprint
 
@@ -88,7 +88,7 @@ def main():
     if args.f is not None:
         with open(args.f) as prog:
             process(prog.read(), stack=[], debug=args.d)
-    if args.p is not None:
+    elif args.p is not None:
         process(args.p, stack=[], debug=args.d)
     else:
         prog = raw_input("gloo # ")

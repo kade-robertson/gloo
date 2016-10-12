@@ -19,23 +19,23 @@ codepage = {
      '0xd': noop,
      '0xe': noop,
      '0xf': noop,
-    '0x10': noop,
-    '0x11': noop,
-    '0x12': noop,
-    '0x13': noop,
-    '0x14': noop,
-    '0x15': noop,
-    '0x16': noop,
-    '0x17': noop,
-    '0x18': noop,
-    '0x19': noop,
-    '0x1a': noop,
-    '0x1b': noop,
-    '0x1c': noop,
-    '0x1d': noop,
-    '0x1e': noop,
-    '0x1f': noop,
-    '0x20': noop,
+    '0x10': p101,    #   - pushes 10 to stack
+    '0x11': p102,    #   - pushes 100 to stack
+    '0x12': p103,    #   - pushes 1000 to stack
+    '0x13': p104,    #   - pushes 10000 to stack
+    '0x14': p105,    #   - pushes 100000 to stack
+    '0x15': p106,    #   - pushes 1000000 to stack
+    '0x16': t204,    #   - pushes 16 to stack
+    '0x17': t205,    #   - pushes 32 to stack
+    '0x18': t206,    #   - pushes 64 to stack
+    '0x19': t207,    #   - pushes 128 to stack
+    '0x1a': noop,    #   - abruptly ends execution (not by choice)
+    '0x1b': t208,    #   - pushes 256 to stack
+    '0x1c': t209,    #   - pushes 512 to stack
+    '0x1d': t210,    #   - pushes 1024 to stack
+    '0x1e': t211,    #   - pushes 2048 to stack
+    '0x1f': t212,    #   - pushes 4096 to stack
+    '0x20': noop,    #   - spaces are noops, silly
     '0x21': fact,    # ! - factorial function, single numbers and list mapping
     '0x22': noop,
     '0x23': noop,

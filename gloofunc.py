@@ -475,7 +475,22 @@ def evlt(stk):
         stk.append(~k)
     else:
         stk.append(k)
-        
+
+def p101(stk): stk.append(10)
+def p102(stk): stk.append(100)
+def p103(stk): stk.append(1000)
+def p104(stk): stk.append(10000)
+def p105(stk): stk.append(100000)
+def p106(stk): stk.append(1000000)
+def t204(stk): stk.append(16)
+def t205(stk): stk.append(32)
+def t206(stk): stk.append(64)
+def t207(stk): stk.append(128)
+def t208(stk): stk.append(256)
+def t209(stk): stk.append(512)
+def t210(stk): stk.append(1024)
+def t211(stk): stk.append(2048)
+def t212(stk): stk.append(4096)
 
 def noop(stk):
     return
