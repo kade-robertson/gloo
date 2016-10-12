@@ -492,5 +492,42 @@ def t210(stk): stk.append(1024)
 def t211(stk): stk.append(2048)
 def t212(stk): stk.append(4096)
 
+def inov(stk):
+    if len(stk) == 0:
+        stk.append(raw_input())
+    k = stk.pop()
+    if type(k) in (str, list):
+        j = None
+        if len(stk) == 0:
+            j = raw_input()
+            j,k = k,j
+        else:
+            j = stk.pop()
+        if type(j) in (int, long, str, list):
+            if type(k) == type(j):
+                if len(j) > len(k): stk.append(0); return
+                else:
+                    count = 0
+                    for i in xrange(0, len(k) - len(j) + 1):
+                        if j == k[i:i+len(j)]: count += 1
+                    stk.append(count)
+            elif type(j) in (int, long, str) and type(k) is list:
+                stk.append(k.count(j))
+            elif type(j) in (int, long, list) and type(k) is str:
+                if type(j) in (int, long): j = [str(j)]
+                count = 0
+                for i in xrange(0, len(j)):
+                    for s in xrange(0, len(k) - len(j[i]) + 1):
+                        if j[i] == k[s:s+len(j[i])]: count += 1
+                stk.append(count)
+            else:
+                stk.append(j)
+                stk.append(k)
+        else:
+            stk.append(j)
+            stk.append(k)
+    else:
+        stk.append(k)
+
 def noop(stk):
     return

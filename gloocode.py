@@ -142,7 +142,7 @@ codepage = {
     '0x88': noop,
     '0x89': noop,
     '0x8a': noop,
-    '0x8b': noop,
+    '0x8b': inov,    # ‹ - string/int/list containment, overlapping
     '0x8c': noop,
     '0x8d': noop,
     '0x8e': noop,
