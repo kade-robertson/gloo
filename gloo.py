@@ -53,8 +53,8 @@ def process(program, stack=[], supprint=False, debug=False):
                             mapprog += program[pos]
                             pos += 1
                     for i in xrange(0, len(k)):
-                        s, supprint = process(mapprog, [k[i]], False)
-                        l.append(s[0])
+                        s, supprint = process(mapprog, [i, k[i]], False)
+                        l += s[-1:]
                     stack.append(l)
                 else:
                     stack.append(k)
@@ -65,8 +65,8 @@ def process(program, stack=[], supprint=False, debug=False):
                 l = []
                 if type(k) in (str, list):
                     for i in xrange(0, len(k)):
-                        s, supprint = process(program[pos], [k[i]], False)
-                        l.append(s[0])
+                        s, supprint = process(program[pos], [i, k[i]], False)
+                        l += s[-1:]
                     stack.append(l)
                 else:
                     stack.append(k)
