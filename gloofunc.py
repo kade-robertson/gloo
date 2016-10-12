@@ -416,5 +416,45 @@ def tolw(stk):
     else:
         stk.append(k)
 
+def zips(stk):
+    if len(stk) == 0:
+        return
+    k = stk.pop()
+    if type(k) in (str,list):
+        if len(stk) == 0:
+            if all(isinstance(i, (str,list)) for i in k):
+                stk.append(zip(*k))
+            else:
+                stk.append(k)
+        else:
+            j = stk.pop()
+            if type(j) in (str,list):
+                stk.append(zip(j, k))
+            else:
+                stk.append(j)
+                stk.append(k)
+    else:
+        stk.append(k)
+
+def zipl(stk):
+    if len(stk) == 0:
+        return
+    k = stk.pop()
+    if type(k) in (str,list):
+        if len(stk) == 0:
+            if all(isinstance(i, (str,list)) for i in k):
+                stk.append(map(None, *k))
+            else:
+                stk.append(k)
+        else:
+            j = stk.pop()
+            if type(j) in (str,list):
+                stk.append(map(None, j, k))
+            else:
+                stk.append(j)
+                stk.append(k)
+    else:
+        stk.append(k)
+
 def noop(stk):
     return

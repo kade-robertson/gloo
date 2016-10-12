@@ -93,7 +93,7 @@ codepage = {
     '0x57': noop,
     '0x58': noop,
     '0x59': noop,
-    '0x5a': noop,
+    '0x5a': zipl,    # Z - zip by longest
     '0x5b': wrap,    # [ - wrap stack in list
     '0x5c': divint,  # \ - division function (integer)
     '0x5d': uwrap,   # ] - unwrap list at top of stack
@@ -125,7 +125,7 @@ codepage = {
     '0x77': noop,
     '0x78': noop,
     '0x79': noop,
-    '0x7a': noop,
+    '0x7a': zips,    # z - standard python zip
     '0x7b': noop,
     '0x7c': noop,
     '0x7d': noop,
