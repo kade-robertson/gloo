@@ -158,9 +158,9 @@ codepage = {
     '0x98': noop,
     '0x99': noop,
     '0x9a': noop,
-    '0x9b': noop,
-    '0x9c': noop,
-    '0x9d': noop,
+    '0x9b': chnk,    # › - string/list chunking, defaults to size 2
+    '0x9c': z2slf,   # œ - zip-to-self (shifted by one) [1,2,3]œ -> [(1,2),(2,3)]
+    '0x9d': delt,    # ﾝ - delta between subsequent list/str items
     '0x9e': noop,
     '0x9f': noop,
     '0xa0': noop,
@@ -181,7 +181,7 @@ codepage = {
     '0xaf': noop,
     '0xb0': noop,
     '0xb1': noop,
-    '0xb2': noop,
+    '0xb2': mod2,    # ² - take modulus 2
     '0xb3': noop,
     '0xb4': noop,
     '0xb5': noop,

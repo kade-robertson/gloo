@@ -529,5 +529,65 @@ def inov(stk):
     else:
         stk.append(k)
 
+def chnk(stk):
+    if len(stk) == 0:
+        stk.append(input())
+    k = stk.pop()
+    if type(k) is int:
+        j = None
+        if len(stk) == 0:
+            j = raw_input()
+            j,k = k,j
+        else:
+            j = stk.pop()
+        if type(j) in (str, list):
+            stk.append([j[i:i+k] for i in xrange(0, len(j), k)])
+        else:
+            stk.append(j)
+            stk.append(k)
+    elif type(k) in (str, list):
+        stk.append([k[i:i+2] for i in xrange(0, len(k), 2)])
+    else:
+        stk.append(k)
+
+def z2slf(stk):
+    if len(stk) == 0:
+        stk.append(raw_input())
+    k = stk.pop()
+    if type(k) in (str, list):
+        stk.append([list(k[i:i+2]) for i in xrange(0, len(k)-1)])
+    else:
+        stk.append(k)
+
+def delt(stk):
+    if len(stk) == 0:
+        stk.append(raw_input())
+    k = stk.pop()
+    if type(k) is str:
+        stk.append([ord(k[i])-ord(k[i+1]) for i in xrange(0, len(k)-1)])
+    elif type(k) is list:
+        if all(isinstance(i, (int, long, float)) for i in k):
+            stk.append([k[i]-k[i+1] for i in xrange(0, len(k)-1)])
+        else:
+            s = [x for x in k if type(x) is str]
+            if all([len(s)==1 for y in s]):
+                k = [(ord(z) if type(z) is str else z) for z in k]
+                stk.append([k[i]-k[i+1] for i in xrange(0, len(k)-1)])
+            else:
+                stk.append(k)
+    else:
+        stk.append(k)
+
+def mod2(stk):
+    if len(stk) == 0:
+        stk.append(input())
+    k = stk.pop()
+    if type(k) is list and all(isinstance(i, (int, long))for i in k):
+        stk.append([i%2 for i in k])
+    elif type(k) in (int, long):
+        stk.append(k % 2)
+    else:
+        stk.append(k)
+
 def noop(stk):
     return
