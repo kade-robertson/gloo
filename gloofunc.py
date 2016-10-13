@@ -3,9 +3,16 @@ import operator
 
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+def flex_input():
+    inp = raw_input()
+    try:
+        return eval(inp)
+    except:
+        return inp
+
 def add(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is list:
         if all(isinstance(i, (int, long, float)) for i in k):
@@ -17,7 +24,7 @@ def add(stk):
     elif type(k) in (int, long, float):
         j = 0
         if len(stk) == 0:
-            j = input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -29,7 +36,7 @@ def add(stk):
     elif type(k) is str:
         j = 0
         if len(stk) == 0:
-            j = input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -43,7 +50,7 @@ def add(stk):
 
 def subt(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is list:
         k = [i for i in k if (i and i != ' ')]
@@ -51,7 +58,7 @@ def subt(stk):
     elif type(k) in (int, long, float):
         j = 0
         if len(stk) == 0:
-            j = input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -63,7 +70,7 @@ def subt(stk):
     elif type(k) is str:
         j = 0
         if len(stk) == 0:
-            j = input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -77,7 +84,7 @@ def subt(stk):
 
 def mult(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is list:
         if all(isinstance(i, (int, long, float)) for i in k):
@@ -87,7 +94,7 @@ def mult(stk):
     elif type(k) in (int, long, float):
         j = 0
         if len(stk) == 0:
-            j = input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -101,7 +108,7 @@ def mult(stk):
     elif type(k) is str:
         j = 0
         if len(stk) == 0:
-            j = input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -115,12 +122,12 @@ def mult(stk):
 
 def divd(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) in (int, long, float):
         j = 0
         if len(stk) == 0:
-            j = input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -134,12 +141,12 @@ def divd(stk):
 
 def divint(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) in (int, long, float):
         j = 0
         if len(stk) == 0:
-            j = input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -153,12 +160,12 @@ def divint(stk):
 
 def modul(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) in (int, long):
         j = 0
         if len(stk) == 0:
-            j = input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -178,7 +185,7 @@ def wrap(stk):
 
 def uwrap(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is list:
         for item in k:
@@ -196,7 +203,7 @@ def rinp(stk):
 
 def sort(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) in (str, list): stk.append(sorted(k))
     elif type(k) in (int, long, float): stk.append(-1 * k)
@@ -204,7 +211,7 @@ def sort(stk):
 
 def fact(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) in (int, long, float):
         if type(k) is float: k = math.gamma(k+1)
@@ -234,14 +241,14 @@ def swap(stk):
 
 def minm(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is list:
         stk.append(min(k))
     else:
         j = 0
         if len(stk) == 0:
-            j = input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -253,14 +260,14 @@ def minm(stk):
 
 def maxm(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is list:
         stk.append(max(k))
     else:
         j = 0
         if len(stk) == 0:
-            j = input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -272,14 +279,14 @@ def maxm(stk):
 
 def dupl(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     stk.append(k)
     stk.append(k)
 
 def isprm(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) in (long, int):
         if k == 2:
@@ -302,7 +309,7 @@ def isprm(stk):
 
 def lowr(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is str:
         stk.append(k.lower())
@@ -311,7 +318,7 @@ def lowr(stk):
 
 def highr(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is str:
         stk.append(k.upper())
@@ -330,7 +337,7 @@ def rotl(stk):
 
 def cond(stk):
     if len(stk) == 0:
-        return
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is bool and len(stk) >= 2:
         if len(stk) >= 2:
@@ -349,10 +356,15 @@ def cond(stk):
 
 def sjoin(stk):
     if len(stk) < 1:
-        return
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is str:
-        j = stk.pop()
+        j = None
+        if len(stk) == 0:
+            j = flex_input()
+            j,k = k,j
+        else:
+            j = stk.pop()
         if type(j) is list:
             stk.append(k.join(map(str,j)))
         else:
@@ -365,7 +377,7 @@ def sjoin(stk):
 
 def exrg(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is list and len(k) == 2:
         if all(isinstance(i, (int, long)) for i in k):
@@ -379,7 +391,7 @@ def exrg(stk):
 
 def inrg(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is list and len(k) == 2:
         if all(isinstance(i, (int, long)) for i in k):
@@ -400,7 +412,7 @@ def lwal(stk): stk.append(alphabet.lower())
 
 def toup(stk):
     if len(stk) == 0:
-        stk.append(raw_input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is str:
         stk.append(k.upper())
@@ -409,7 +421,7 @@ def toup(stk):
 
 def tolw(stk):
     if len(stk) == 0:
-        stk.append(raw_input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is str:
         stk.append(k.lower())
@@ -418,14 +430,20 @@ def tolw(stk):
 
 def zips(stk):
     if len(stk) == 0:
-        return
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) in (str,list):
         if len(stk) == 0:
             if all(isinstance(i, (str,list)) for i in k):
                 stk.append(zip(*k))
             else:
-                stk.append(k)
+                j = flex_input()
+                j, k = k, j
+                if type(j) in (str,list):
+                    stk.append(zip(j, k))
+                else:
+                    stk.append(j)
+                    stk.append(k)
         else:
             j = stk.pop()
             if type(j) in (str,list):
@@ -438,14 +456,20 @@ def zips(stk):
 
 def zipl(stk):
     if len(stk) == 0:
-        return
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) in (str,list):
         if len(stk) == 0:
             if all(isinstance(i, (str,list)) for i in k):
                 stk.append(map(None, *k))
             else:
-                stk.append(k)
+                j = flex_input()
+                j, k = k, j
+                if type(j) in (str,list):
+                    stk.append(zip(j, k))
+                else:
+                    stk.append(j)
+                    stk.append(k)
         else:
             j = stk.pop()
             if type(j) in (str,list):
@@ -458,16 +482,16 @@ def zipl(stk):
 
 def equl(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     j = stk.pop()
     stk.append(k == j)
 
 def evlt(stk):
     if len(stk) == 0:
-        stk.append(raw_input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is str:
         stk.append(eval(k))
@@ -494,12 +518,12 @@ def t212(stk): stk.append(4096)
 
 def inov(stk):
     if len(stk) == 0:
-        stk.append(raw_input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) in (str, list):
         j = None
         if len(stk) == 0:
-            j = raw_input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -531,12 +555,12 @@ def inov(stk):
 
 def chnk(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is int:
         j = None
         if len(stk) == 0:
-            j = raw_input()
+            j = flex_input()
             j,k = k,j
         else:
             j = stk.pop()
@@ -552,7 +576,7 @@ def chnk(stk):
 
 def z2slf(stk):
     if len(stk) == 0:
-        stk.append(raw_input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) in (str, list):
         stk.append([list(k[i:i+2]) for i in xrange(0, len(k)-1)])
@@ -561,7 +585,7 @@ def z2slf(stk):
 
 def delt(stk):
     if len(stk) == 0:
-        stk.append(raw_input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is str:
         stk.append([ord(k[i])-ord(k[i+1]) for i in xrange(0, len(k)-1)])
@@ -580,7 +604,7 @@ def delt(stk):
 
 def mod2(stk):
     if len(stk) == 0:
-        stk.append(input())
+        stk.append(flex_input())
     k = stk.pop()
     if type(k) is list and all(isinstance(i, (int, long))for i in k):
         stk.append([i%2 for i in k])
