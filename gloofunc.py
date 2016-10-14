@@ -328,7 +328,7 @@ def highr(stk):
 def rotr(stk):
     if len(stk) == 0: return
     k = stk.pop()
-    stk = [k] + stk
+    stk.insert(0,k)
 
 def rotl(stk):
     if len(stk) == 0: return
@@ -553,6 +553,26 @@ def inov(stk):
     else:
         stk.append(k)
 
+def chnko(stk):
+    if len(stk) == 0:
+        stk.append(flex_input())
+    k = stk.pop()
+    if type(k) is int:
+        j = None
+        if len(stk) == 0:
+            j = flex_input()
+        else:
+            j = stk.pop()
+        if type(j) in (str, list):
+            stk.append([j[i:i+k] for i in xrange(0, len(j)-k+1)])
+        else:
+            stk.append(j)
+            stk.append(k)
+    elif type(k) in (str, list):
+        stk.append([k[i:i+2] for i in xrange(0, len(k)-1)])
+    else:
+        stk.append(k)
+
 def chnk(stk):
     if len(stk) == 0:
         stk.append(flex_input())
@@ -561,7 +581,6 @@ def chnk(stk):
         j = None
         if len(stk) == 0:
             j = flex_input()
-            j,k = k,j
         else:
             j = stk.pop()
         if type(j) in (str, list):
@@ -610,6 +629,29 @@ def mod2(stk):
         stk.append([i%2 for i in k])
     elif type(k) in (int, long):
         stk.append(k % 2)
+    else:
+        stk.append(k)
+
+def neib(stk):
+    if len(stk) == 0:
+        stk.append(flex_input())
+    k = stk.pop()
+    if type(k) is list:
+        stk.append([0]+k+[0])
+        stk.append(3)
+        chnko(stk)
+        j = stk.pop()
+        j[0] = j[0][1:]
+        j[-1] = j[-1][:-1]
+        stk.append(j)
+    elif type(k) is str:
+        stk.append(' '+k+' ')
+        stk.append(3)
+        chnko(stk)
+        j = stk.pop()
+        j[0] = j[0][1:]
+        j[-1] = j[-1][:-1]
+        stk.append(j)
     else:
         stk.append(k)
 

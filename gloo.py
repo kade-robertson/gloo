@@ -16,7 +16,7 @@ def process(program, stack=[], supprint=False, debug=False):
     nested = stack != []
     pos = 0
     while pos < len(program):
-        if program[pos] in allnums[:-1]:
+        if program[pos] in allnums[:-1]: # number parse mode
             numstr = program[pos]
             hasdot = False
             pos += 1
@@ -28,17 +28,17 @@ def process(program, stack=[], supprint=False, debug=False):
                 pos += 1
             pos -= 1
             stack.append(numparse(numstr))
-        elif program[pos] == '"':
+        elif program[pos] == '"': # string parse mode
             sstr = ''
             pos += 1
             while pos < len(program) and program[pos] != '"':
                 sstr += program[pos]
                 pos  += 1
             stack.append(sstr)
-        elif program[pos] == "'":
+        elif program[pos] == "'": # char parse mode
             pos += 1
             stack.append(program[pos])
-        elif hex(ord(program[pos])) == "0x91":
+        elif hex(ord(program[pos])) == "0x91": # foreach loop (mapping)
             nest = 1
             if not len(stack) == 0:
                 k = stack.pop()
@@ -58,7 +58,7 @@ def process(program, stack=[], supprint=False, debug=False):
                     stack.append(l)
                 else:
                     stack.append(k)
-        elif hex(ord(program[pos])) == '0xb6':
+        elif hex(ord(program[pos])) == '0xb6': # 1-char mapping
             pos += 1
             if not len(stack) == 0:
                 k = stack.pop()
@@ -70,6 +70,32 @@ def process(program, stack=[], supprint=False, debug=False):
                     stack.append(l)
                 else:
                     stack.append(k)
+        elif program[pos] == '|': # do action while len(list/str)>1
+            pos += 1
+            if not len(stack) == 0:
+                k = stack.pop()
+                if type(k) in (list, str):
+                    while len(k) > 1:
+                        temp, supprint = process(program[pos], [k], False)
+                        k = temp[0]
+                    stack.append(k[0])
+                else:
+                    stack.append(k)
+        elif program[pos] == '<': # while top of stack is truthy, execute between
+            nest = 1
+            if not len(stack) == 0:
+                k = stack
+                mapprog = ""
+                pos += 1
+                while pos < len(program) and nest > 0:
+                    if program[pos] == ">": nest += 1
+                    elif program[pos] == "<": nest -= 1
+                    if nest > 0:
+                        mapprog += program[pos]
+                        pos += 1
+                while k[-1]:
+                    k, supprint = process(mapprog, k, False)
+                stack.append(k)
         else:
             codepage[hex(ord(program[pos]))](stack)
         if pos < len(program) and pos >= 1 and program[pos] in 'p' and program[pos-1] != "'":

@@ -127,7 +127,7 @@ codepage = {
     '0x79': noop,
     '0x7a': zips,    # z - standard python zip
     '0x7b': noop,
-    '0x7c': noop,
+    '0x7c': noop,    # | - while list has > 1 element, do next 1-char action
     '0x7d': noop,
     '0x7e': evlt,    # ~ - evaulate a string, complement of number
     '0x7f': noop,
@@ -157,8 +157,8 @@ codepage = {
     '0x97': noop,
     '0x98': noop,
     '0x99': noop,
-    '0x9a': noop,
-    '0x9b': chnk,    # › - string/list chunking, defaults to size 2
+    '0x9a': chnko,   # š - string/list chunking, defaults to size 2 (overlap)
+    '0x9b': chnk,    # › - string/list chunking, defaults to size 2 (no overlap)
     '0x9c': z2slf,   # œ - zip-to-self (shifted by one) [1,2,3]œ -> [(1,2),(2,3)]
     '0x9d': delt,    # ﾝ - delta between subsequent list/str items
     '0x9e': noop,
@@ -174,7 +174,7 @@ codepage = {
     '0xa8': noop,
     '0xa9': noop,
     '0xaa': noop,
-    '0xab': noop,
+    '0xab': neib,    # « - convert list/string to list of neighbor triplets
     '0xac': noop,
     '0xad': noop,
     '0xae': noop,
